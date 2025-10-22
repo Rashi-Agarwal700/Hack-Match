@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HackMatch - Find Your Team. Build Your Dream.</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* For Login Page Gradient Background */
+      .gradient-bg-light {
+        background: linear-gradient(135deg, #fde68a, #fbcfe8, #a5b4fc);
+        background-size: 400% 400%;
+        animation: gradient-animation 15s ease infinite;
+      }
+      .gradient-bg-dark {
+        background: linear-gradient(135deg, #1e3a8a, #5b21b6, #1e293b);
+        background-size: 400% 400%;
+        animation: gradient-animation 15s ease infinite;
+      }
+
+      @keyframes gradient-animation {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+      
+      /* For Login Page Animated Blobs */
+      .blob {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(40px);
+        opacity: 0.5;
+      }
+      .blob1 {
+        width: 300px;
+        height: 300px;
+        top: 10%;
+        left: 10%;
+        background-color: rgba(167, 139, 250, 0.5); /* violet-400 */
+        animation: blob-move 20s infinite alternate;
+      }
+      .blob2 {
+        width: 250px;
+        height: 250px;
+        bottom: 10%;
+        right: 15%;
+        background-color: rgba(56, 189, 248, 0.5); /* sky-400 */
+        animation: blob-move 25s infinite alternate-reverse;
+      }
+       @keyframes blob-move {
+        0% { transform: translate(0, 0) scale(1); }
+        50% { transform: translate(100px, 50px) scale(1.2); }
+        100% { transform: translate(-50px, -100px) scale(0.8); }
+      }
+    </style>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              // Light theme
+              'background': '#f8fafc', // slate-50
+              'surface': '#ffffff',
+              'primary': '#38bdf8', // sky-400
+              'secondary': '#818cf8', // indigo-400
+              'accent': '#a78bfa', // violet-400
+              'text-primary': '#0f172a', // slate-900
+              'text-secondary': '#64748b', // slate-500
+              'border-light': '#e2e8f0', // slate-200
+
+              // Dark theme
+              'background-dark': '#0f172a', // slate-900
+              'surface-dark': '#1e293b', // slate-800
+              'primary-dark': '#38bdf8', // sky-400
+              'secondary-dark': '#a5b4fc', // indigo-300
+              'accent-dark': '#c4b5fd', // violet-300
+              'text-primary-dark': '#f1f5f9', // slate-100
+              'text-secondary-dark': '#94a3b8', // slate-400
+              'border-dark': '#334155', // slate-700
+            },
+            animation: {
+              'fade-in-up': 'fadeInUp 0.6s ease-out forwards',
+              'pulse-fast': 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'slide-in-bottom': 'slideInBottom 0.5s ease-out forwards',
+            },
+            keyframes: {
+              fadeInUp: {
+                '0%': { opacity: '0', transform: 'translateY(20px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              slideInBottom: {
+                '0%': { opacity: '0', transform: 'translateY(100%)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              }
+            },
+          },
+        },
+      }
+    </script>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.26.0",
+    "framer-motion": "https://aistudiocdn.com/framer-motion@^11.3.19"
+  }
+}
+</script>
+</head>
+  <body class="bg-background text-text-primary dark:bg-background-dark dark:text-text-primary-dark transition-colors duration-300">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
